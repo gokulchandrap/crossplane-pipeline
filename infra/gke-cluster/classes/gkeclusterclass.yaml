@@ -1,0 +1,25 @@
+---
+apiVersion: compute.gcp.crossplane.io/v1alpha3
+kind: GKEClusterClass
+metadata:
+  labels:
+    name: gke-clusterclass
+    region: us-central
+  name: gke-clusterclass
+  annotations:
+    resourceclass.crossplane.io/is-default-class: "false"
+specTemplate:
+  writeConnectionSecretsToNamespace: crossplane-system
+  machineType: n1-standard-1
+  numNodes: 5
+  zone: us-central1-b
+  networkRef:
+    name: gke-central-network
+  subnetworkRef:
+    name: gke-central-subnetwork
+  enableIPAlias: true
+  clusterSecondaryRangeName: pods
+  servicesSecondaryRangeName: services
+  reclaimPolicy: Delete
+  providerRef:
+    name: gcp-provider

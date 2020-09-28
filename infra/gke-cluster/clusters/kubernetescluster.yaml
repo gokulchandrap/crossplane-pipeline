@@ -1,0 +1,13 @@
+apiVersion: compute.crossplane.io/v1alpha1
+kind: KubernetesCluster
+metadata:
+  name: gke-central-cluster
+  namespace: gke
+  annotations:
+    crossplane.io/external-name: gke-central-cluster
+spec:
+  classSelector:
+    matchLabels:
+      name: "gke-clusterclass"
+  writeConnectionSecretToRef:
+    name: gke-central-cluster

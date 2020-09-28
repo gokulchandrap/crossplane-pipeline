@@ -1,0 +1,11 @@
+---
+apiVersion: gcp.crossplane.io/v1alpha3
+kind: Provider
+metadata:
+  name: gcp-provider
+spec:
+  projectID: crossplane-k8s
+  credentialsSecretRef:
+    namespace: crossplane-system
+    name: gcp-creds
+    key: key
