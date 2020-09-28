@@ -1,0 +1,14 @@
+apiVersion: network.aws.crossplane.io/v1alpha3
+kind: SecurityGroup
+metadata:
+  labels:
+    provider: aws
+  name: eks-west-securitygroup
+spec:
+  description: security group for us-west eks
+  groupName: eks-west-sg
+  providerRef:
+    name: aws-provider
+  reclaimPolicy: Delete
+  vpcIdRef:
+    name: eks-west-vpc

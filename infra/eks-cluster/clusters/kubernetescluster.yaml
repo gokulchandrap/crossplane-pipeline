@@ -1,0 +1,12 @@
+apiVersion: compute.crossplane.io/v1alpha1
+kind: KubernetesCluster
+metadata:
+  name: eks-west-cluster
+  labels:
+    app: eks-west
+spec:
+  classSelector:
+    matchLabels:
+      name: eks-clusterclass
+  writeConnectionSecretToRef:
+    name: eks-west-cluster

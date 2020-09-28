@@ -1,0 +1,31 @@
+apiVersion: compute.aws.crossplane.io/v1alpha3
+kind: EKSClusterClass
+metadata:
+  labels:
+    name: eks-clusterclass
+    provider: aws
+    region: west
+  name: eks-clusterclass
+specTemplate:
+  providerRef:
+    name: aws-provider
+  reclaimPolicy: Delete
+  region: us-west-2
+  roleARNRef:
+    name: eks-west-iamrole
+  securityGroupIdRefs:
+  - name: eks-west-securitygroup
+  subnetIdRefs:
+  - name: eks-west-subnet1
+  - name: eks-west-subnet2
+  - name: eks-west-subnet3
+  vpcIdRef:
+    name: eks-west-vpc
+  workerNodes:
+    clusterControlPlaneSecurityGroupRef:
+      name: eks-west-securitygroup
+    nodeAutoScalingGroupMaxSize: 1
+    nodeAutoScalingGroupMinSize: 1
+    nodeGroupName: eks-west-nodes
+    nodeInstanceType: m3.medium
+  writeConnectionSecretsToNamespace: crossplane-system

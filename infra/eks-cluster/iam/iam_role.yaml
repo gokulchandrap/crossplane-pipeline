@@ -1,0 +1,25 @@
+apiVersion: identity.aws.crossplane.io/v1alpha3
+kind: IAMRole
+metadata:
+  labels:
+    provider: aws
+  name: eks-west-iamrole
+spec:
+  assumeRolePolicyDocument: |
+    {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Principal": {
+            "Service": "eks.amazonaws.com"
+          },
+          "Action": "sts:AssumeRole"
+        }
+      ]
+    }
+  description: iam role for us-west eks
+  providerRef:
+    name: aws-provider
+  reclaimPolicy: Delete
+  roleName: eks-west-iamrole

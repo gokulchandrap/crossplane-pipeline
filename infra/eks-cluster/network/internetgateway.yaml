@@ -1,0 +1,12 @@
+apiVersion: network.aws.crossplane.io/v1alpha3
+kind: InternetGateway
+metadata:
+  labels:
+    provider: aws
+  name: eks-west-internetgateway
+spec:
+  providerRef:
+    name: aws-provider
+  reclaimPolicy: Delete
+  vpcIdRef:
+    name: eks-west-vpc

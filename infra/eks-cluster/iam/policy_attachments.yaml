@@ -1,0 +1,27 @@
+apiVersion: identity.aws.crossplane.io/v1alpha3
+kind: IAMRolePolicyAttachment
+metadata:
+  labels:
+    provider: aws
+  name: eks-west-cluster-iamrolepolicyattachment
+spec:
+  policyArn: arn:aws:iam::aws:policy/AmazonEKSClusterPolicy
+  providerRef:
+    name: aws-provider
+  reclaimPolicy: Delete
+  roleNameRef:
+    name: eks-west-iamrole
+---
+apiVersion: identity.aws.crossplane.io/v1alpha3
+kind: IAMRolePolicyAttachment
+metadata:
+  labels:
+    provider: aws
+  name: eks-west-service-iamrolepolicyattachment
+spec:
+  policyArn: arn:aws:iam::aws:policy/AmazonEKSServicePolicy
+  providerRef:
+    name: aws-provider
+  reclaimPolicy: Delete
+  roleNameRef:
+    name: eks-west-iamrole

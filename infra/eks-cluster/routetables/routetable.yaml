@@ -1,0 +1,23 @@
+apiVersion: network.aws.crossplane.io/v1alpha3
+kind: RouteTable
+metadata:
+  labels:
+    provider: aws
+  name: eks-west-routetable
+spec:
+  associations:
+  - subnetIdRef:
+      name: eks-west-subnet1
+  - subnetIdRef:
+      name: eks-west-subnet2
+  - subnetIdRef:
+      name: eks-west-subnet3
+  providerRef:
+    name: aws-provider
+  reclaimPolicy: Delete
+  routes:
+  - destinationCidrBlock: 0.0.0.0/0
+    gatewayIdRef:
+      name: eks-west-internetgateway
+  vpcIdRef:
+    name: eks-west-vpc
