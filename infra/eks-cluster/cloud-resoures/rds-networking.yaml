@@ -1,17 +1,18 @@
-apiVersion: database.aws.crossplane.io/v1alpha3
+---
+apiVersion: database.aws.crossplane.io/v1beta1
 kind: DBSubnetGroup
 metadata:
   name: rds-west-dbsubnetgroup
 spec:
-  groupName: rds-west-dbsubnetgroup
-  description: EKS vpc to rds
-  subnetIdRefs:
-    - name: eks-west-subnet1
-    - name: eks-west-subnet2
-    - name: eks-west-subnet3
-  tags:
-    - key: name
-      value: rds-west-dbsubnetgroup
+  forProvider:
+    description: "EKS vpc to rds"
+    tags:
+      - key: name
+        value: rds-west-dbsubnetgroup
+    subnetIdRefs:
+      - name: eks-west-subnet1
+      - name: eks-west-subnet2
+      - name: eks-west-subnet3
   reclaimPolicy: Delete
   providerRef:
     name: aws-provider

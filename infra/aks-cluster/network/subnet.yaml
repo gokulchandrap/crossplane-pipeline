@@ -1,0 +1,16 @@
+apiVersion: network.azure.crossplane.io/v1alpha3
+kind: Subnet
+metadata:
+  name: aks-west-sb
+spec:
+  resourceGroupNameRef:
+    name: aks-west-rg
+  virtualNetworkNameRef:
+    name: aks-west-vn
+  properties:
+    addressPrefix: 10.2.0.0/24
+    serviceEndpoints:
+      - service: Microsoft.Sql
+  reclaimPolicy: Delete
+  providerRef:
+    name: azure-provider

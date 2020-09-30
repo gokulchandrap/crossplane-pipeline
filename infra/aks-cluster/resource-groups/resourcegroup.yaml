@@ -1,0 +1,8 @@
+apiVersion: azure.crossplane.io/v1alpha3
+kind: ResourceGroup
+metadata:
+  name: aks-west-rg
+spec:
+  location: West US 2
+  providerRef:
+    name: azure-provider

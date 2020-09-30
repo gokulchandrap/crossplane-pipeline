@@ -1,13 +1,17 @@
-apiVersion: network.aws.crossplane.io/v1alpha3
+---
+apiVersion: ec2.aws.crossplane.io/v1beta1
 kind: VPC
 metadata:
   labels:
     provider: aws
   name: eks-west-vpc
 spec:
-  cidrBlock: 192.168.0.0/16
-  enableDnsHostNames: true
-  enableDnsSupport: true
+  forProvider:
+    region: us-west-2
+    cidrBlock: 192.168.0.0/16
+    enableDnsSupport: true
+    enableDnsHostNames: true
+    instanceTenancy: default
+  reclaimPolicy: Delete
   providerRef:
     name: aws-provider
-  reclaimPolicy: Delete
