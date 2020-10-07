@@ -13,6 +13,7 @@ specTemplate:
   region: us-west-2
   roleARNRef:
     name: eks-west-iamrole
+  clusterVersion: 1.16
   securityGroupIdRefs:
   - name: eks-west-securitygroup
   subnetIdRefs:
@@ -24,8 +25,8 @@ specTemplate:
   workerNodes:
     clusterControlPlaneSecurityGroupRef:
       name: eks-west-securitygroup
-    nodeAutoScalingGroupMaxSize: 1
-    nodeAutoScalingGroupMinSize: 1
+    nodeAutoScalingGroupMaxSize: 2
+    nodeAutoScalingGroupMinSize: 2
     nodeGroupName: eks-west-nodes
     nodeInstanceType: m3.medium
   writeConnectionSecretsToNamespace: crossplane-system
