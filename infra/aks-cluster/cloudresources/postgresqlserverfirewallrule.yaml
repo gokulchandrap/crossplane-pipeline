@@ -1,0 +1,15 @@
+apiVersion: database.azure.crossplane.io/v1alpha3
+kind: PostgreSQLServerFirewallRule
+metadata:
+  name: psql-west-fwrule
+spec:
+  providerRef:
+    name: azure-provider
+  forProvider:
+    resourceGroupNameRef:
+      name: aks-west-rg
+    serverNameRef:
+      name: psql-west
+    properties:
+      startIpAddress: "0.0.0.0"
+      endIpAddress: "0.0.0.0"

@@ -1,0 +1,14 @@
+apiVersion: database.azure.crossplane.io/v1alpha3
+kind: PostgreSQLServerVirtualNetworkRule
+metadata:
+  name: psql-west-vnrule
+spec:
+  providerRef:
+    name: azure-provider
+  resourceGroupNameRef:
+    name: aks-west-rg
+  serverNameRef:
+    name: psql-west
+  properties:
+    virtualNetworkSubnetIdRef:
+      name: aks-west-sb
