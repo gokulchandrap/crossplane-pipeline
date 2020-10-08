@@ -7,7 +7,6 @@ metadata:
   name: eks-west-routetable
 spec:
   forProvider:
-    region: us-west-2
     routes:
       - destinationCidrBlock: 0.0.0.0/0
         gatewayIdRef:
