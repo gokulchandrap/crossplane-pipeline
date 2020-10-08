@@ -2,6 +2,8 @@ apiVersion: database.crossplane.io/v1alpha1
 kind: MySQLInstance
 metadata:
   name: sql-west
+  labels:
+    app: eks-west
 spec:
   classSelector:
     matchLabels:
