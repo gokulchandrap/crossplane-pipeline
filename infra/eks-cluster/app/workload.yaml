@@ -30,7 +30,7 @@ spec:
           app: wordpress-west
       spec:
         secrets:
-          - name: sql-west
+          - name: wordpress-west-deployment-sql-west
         template:
           apiVersion: apps/v1
           kind: Deployment
@@ -55,17 +55,17 @@ spec:
                       - name: WORDPRESS_DB_HOST
                         valueFrom:
                           secretKeyRef:
-                            name: sql-west
+                            name: wordpress-west-deployment-sql-west
                             key: endpoint
                       - name: WORDPRESS_DB_USER
                         valueFrom:
                           secretKeyRef:
-                            name: sql-west
+                            name: wordpress-west-deployment-sql-west
                             key: username
                       - name: WORDPRESS_DB_PASSWORD
                         valueFrom:
                           secretKeyRef:
-                            name: sql-west
+                            name: wordpress-west-deployment-sql-west
                             key: password
                     ports:
                       - containerPort: 80
