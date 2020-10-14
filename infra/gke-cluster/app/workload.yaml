@@ -30,7 +30,7 @@ spec:
           app: wordpress-central
       spec:
         secrets:
-          - name: cloudsqlpostgresql-conn
+          - name: wordpress-central-deployment-cloudsqlpostgresql-conn
         template:
           apiVersion: apps/v1
           kind: Deployment
@@ -55,17 +55,17 @@ spec:
                       - name: WORDPRESS_DB_HOST
                         valueFrom:
                           secretKeyRef:
-                            name: cloudsqlpostgresql-conn
+                            name: wordpress-central-deployment-cloudsqlpostgresql-conn
                             key: endpoint
                       - name: WORDPRESS_DB_USER
                         valueFrom:
                           secretKeyRef:
-                            name: cloudsqlpostgresql-conn
+                            name: wordpress-central-deployment-cloudsqlpostgresql-conn
                             key: username
                       - name: WORDPRESS_DB_PASSWORD
                         valueFrom:
                           secretKeyRef:
-                            name: cloudsqlpostgresql-conn
+                            name: wordpress-central-deployment-cloudsqlpostgresql-conn
                             key: password
                     ports:
                       - containerPort: 80
