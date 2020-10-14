@@ -12,6 +12,7 @@ spec:
       dataDiskSizeGb: 10
   writeConnectionSecretToRef:
     name: cloudsqlpostgresql-conn
+    namespace: default
   providerRef:
     name: gcp-provider
   reclaimPolicy: Delete
