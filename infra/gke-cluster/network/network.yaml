@@ -2,7 +2,6 @@ apiVersion: compute.gcp.crossplane.io/v1beta1
 kind: Network
 metadata:
   name: gke-central-network
-  namespace: gke
 spec:
   forProvider:
     autoCreateSubnetworks: false

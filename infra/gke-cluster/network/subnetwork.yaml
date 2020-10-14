@@ -2,7 +2,6 @@ apiVersion: compute.gcp.crossplane.io/v1beta1
 kind: Subnetwork
 metadata:
   name: gke-central-subnetwork
-  namespace: gke
 spec:
   forProvider:
     region: us-central1
